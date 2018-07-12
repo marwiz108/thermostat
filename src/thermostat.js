@@ -5,15 +5,23 @@ function Thermostat() {
   this.powerSave = true;
 };
 
+Thermostat.prototype.isMaxTemp = function () {
+  return(this.temperature === this.MAX_TEMP);
+};
+
+Thermostat.prototype.isMinTemp = function () {
+  return(this.temperature === this.MIN_TEMP);
+};
+
 Thermostat.prototype.up = function () {
-  if(this.temperature === this.MAX_TEMP) {
+  if(this.isMaxTemp()) {
     return;
   };
   return(this.temperature ++);
 };
 
 Thermostat.prototype.down = function () {
-  if(this.temperature === this.MIN_TEMP) {
+  if(this.isMinTemp()) {
     return;
   };
   return(this.temperature --);
