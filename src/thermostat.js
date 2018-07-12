@@ -3,5 +3,9 @@ function Thermostat() {
 };
 
 Thermostat.prototype.up = function () {
-  return (this.temperature ++);
+  return(this.temperature ++);
+};
+
+Thermostat.prototype.down = function () {
+  return(this.temperature --);
 };
