@@ -8,7 +8,7 @@ describe("Thermostat", function() {
   });
 
   it("starts at 20 degrees", function() {
-    expect(thermostat.temperature).toBe(20)
+    expect(thermostat.temperature).toBe(20);
   });
 
   it("temperature increases with #up", function() {
@@ -22,14 +22,20 @@ describe("Thermostat", function() {
   });
 
   it("minimum temperature is 10 degrees", function() {
-    for(i = 0; i < 10; i ++) {
+    for(i = 0; i < 11; i ++) {
       thermostat.down();
     };
-    thermostat.down();
     expect(thermostat.temperature).toEqual(10);
   });
 
   it("power saving mode is on by default", function() {
-    expect(thermostat.PowerSaveOn).toBe(true);
+    expect(thermostat.powerSave).toBe(true);
+  });
+
+  it("has max temp of 25 when power saving is on", function() {
+    for(i = 0; i < 6; i ++) {
+      thermostat.up();
+    };
+    expect(thermostat.temperature).toEqual(25);
   });
 });

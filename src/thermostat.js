@@ -1,12 +1,14 @@
 function Thermostat() {
   this.temperature = 20;
   this.MIN_TEMP = 10;
-  this.PowerSaveOn = true;
+  this.MAX_TEMP = 25;
+  this.powerSave = true;
 };
 
-console.log("ready");
-
 Thermostat.prototype.up = function () {
+  if(this.temperature === this.MAX_TEMP) {
+    return;
+  };
   return(this.temperature ++);
 };
 
