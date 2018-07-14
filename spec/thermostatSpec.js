@@ -8,7 +8,7 @@ describe("Thermostat", function() {
   });
 
   it("starts at 20 degrees", function() {
-    expect(thermostat.temperature).toBe(20);
+    expect(thermostat.temperature).toEqual(20);
   });
 
   it("temperature increases with #up", function() {
@@ -46,4 +46,10 @@ describe("Thermostat", function() {
     };
     expect(thermostat.temperature).toEqual(32);
   });
+
+  it("can reset the temperature", function() {
+    thermostat.up();
+    thermostat.reset();
+    expect(thermostat.temperature).toEqual(20);
+  })
 });
