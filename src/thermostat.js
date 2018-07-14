@@ -21,6 +21,13 @@ Thermostat.prototype.powerSaveOff = function () {
   return (this.powerSave = false);
 };
 
+Thermostat.prototype.powerSaveOn = function () {
+  if (this.temperature > this.MAX_TEMP) {
+    return (this.temperature = this.MAX_TEMP);
+  };
+  return (this.powerSave = true);
+};
+
 Thermostat.prototype.up = function () {
   if (this.isMaxTemp()) {
     return;
