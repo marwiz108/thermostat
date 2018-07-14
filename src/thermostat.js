@@ -7,34 +7,44 @@ function Thermostat() {
 };
 
 Thermostat.prototype.isMaxTemp = function () {
-  if(this.powerSave === false) {
-    return(this.temperature === this.MAX_TEMP_PSM_OFF);
+  if (this.powerSave === false) {
+    return (this.temperature === this.MAX_TEMP_PSM_OFF);
   };
-  return(this.temperature === this.MAX_TEMP);
+  return (this.temperature === this.MAX_TEMP);
 };
 
 Thermostat.prototype.isMinTemp = function () {
-  return(this.temperature === this.MIN_TEMP);
+  return (this.temperature === this.MIN_TEMP);
 };
 
 Thermostat.prototype.powerSaveOff = function () {
-  return(this.powerSave = false);
+  return (this.powerSave = false);
 };
 
 Thermostat.prototype.up = function () {
-  if(this.isMaxTemp()) {
+  if (this.isMaxTemp()) {
     return;
   };
-  return(this.temperature ++);
+  return (this.temperature ++);
 };
 
 Thermostat.prototype.down = function () {
-  if(this.isMinTemp()) {
+  if (this.isMinTemp()) {
     return;
   };
-  return(this.temperature --);
+  return (this.temperature --);
 };
 
 Thermostat.prototype.reset = function () {
-  return(this.temperature = 20);
+  return (this.temperature = 20);
+};
+
+Thermostat.prototype.energyUsage = function () {
+  if (this.temperature < 18) {
+    return ("low-usage");
+  } else if (this.temperature < 25 && this.temperature >= 18) {
+    return ("medium-usage");
+  } else {
+    return ("high-usage");
+  };
 };

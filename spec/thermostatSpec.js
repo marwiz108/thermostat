@@ -51,5 +51,23 @@ describe("Thermostat", function() {
     thermostat.up();
     thermostat.reset();
     expect(thermostat.temperature).toEqual(20);
-  })
+  });
+
+  it("shows when energy is low usage", function() {
+    for(i = 0; i < 3; i ++) {
+      thermostat.down();
+    };
+    expect(thermostat.energyUsage()).toEqual("low-usage");
+  });
+
+  it("shows when energy is medium usage", function() {
+    expect(thermostat.energyUsage()).toEqual("medium-usage");
+  });
+
+  it("shows when energy is high usage", function() {
+    for(i = 0; i < 5; i ++) {
+      thermostat.up();
+    };
+    expect(thermostat.energyUsage()).toEqual("high-usage");
+  });
 });
