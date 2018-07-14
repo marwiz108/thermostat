@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Thermostat</title>
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  </head>
+
+  <body>
+    <section>
+      <h1>Thermostat</h1>
+
+      <div>
+        <row>
+          Power saving mode is <span id="power-saving-status">ON<span>
+        </row>
+
+        <p>
+          <button id="temperature-up">+</button>
+          <button id="temperature-down">-</button>
+          <button id="temperature-reset">reset</button>
+
+          <div>
+            <span id="temperature">20</span> &#8451;
+          </div>
+
+          <button id="power-saving-on">PSM on</button>
+          <button id="power-saving-off">PSM off</button>
+        </p>
+      </div>
+    </section>
+
+    <script src="src/thermostat.js"></script>
+  </body>
+</html>
